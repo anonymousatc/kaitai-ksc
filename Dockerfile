@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:sid
 
 WORKDIR /usr/src
 
@@ -7,12 +7,12 @@ RUN apt-get update \-y \
 
 #Installs java, needed by kaitai
 RUN set -ex && \
-    echo 'deb http://deb.debian.org/debian jessie-backports main' \
-      > /etc/apt/sources.list.d/jessie-backports.list && \
+    echo 'deb https://deb.debian.org/debian sid-backports main' \
+      > /etc/apt/sources.list.d/sid-backports.list && \
     apt update -y && \
     apt install -t \
       jessie-backports \
-      openjdk-8-jre-headless \
+      openjdk-11-jre-headless \
       ca-certificates-java -y
 
 #Installs Kaitai Struct Compiler
